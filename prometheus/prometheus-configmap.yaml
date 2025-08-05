@@ -27,6 +27,8 @@ data:
           - source_labels: [__meta_kubernetes_pod_label_app]
             action: keep
             regex: my-demo
+          - source_labels: [__meta_kubernetes_pod_name]
+            target_label: instance   # 覆蓋 instance
         metrics_path: /actuator/prometheus
         scrape_interval: 10s
   
